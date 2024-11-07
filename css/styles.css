@@ -1,0 +1,668 @@
+/*.****************** CUSTOM PROPERTIES ***************************/
+:root{
+    --first-color: #194157;
+    --second-color: #F4EFEB;
+    --third-color: #577C8E ;
+    --black-color: #0000 ;
+    --black-alpha-color: #C0C0C07f;
+    --grey-color: #C0C0C0 ;
+    --grey-dark-color: #2F2F2F ;
+    --white-color: #FFFFFF ;
+    --purple-alpha-color: #2A202B7F;
+    --transparent-color: transparent ;
+    --first-font:"Bai Jamjuree", serif ;
+    --second-font:"Roboto", sans-serif ;
+    --max-width: 1200px;
+    --header-height:4rem;
+}
+/*.********************* RESET *************************************/
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 16px;
+    font-family: var(--second-font);
+}
+body{
+    overflow-x: hidden;
+    color: var(--first-color);
+    background-color: var(--white-color);
+}
+a{
+   
+    text-decoration: none;
+    transition: all 0.3s ease-out;
+    color: var(--first-color) 
+}
+a:hover {
+    opacity: 0.75;
+}
+h1{
+    margin: 0;
+    font-size: 2rem;
+}
+h2{
+    margin: 0;
+    font-size: 1.5rem;
+}
+h3{
+    margin: 0;
+    font-size: 1.25rem;
+}
+h4{
+    margin: 0;
+    font-size: 1rem;
+}
+h5{
+    margin: 0;
+    font-size: .85rem;
+}
+h6{
+    margin: 0;
+    font-size: .7rem;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+p{
+    line-height: 1.6rem;
+    color: var(--first-color);
+}
+/*.********************* COMPONENTS *************************************/
+/*.*********** CAROUSEL ************/
+
+.clients .hero-image{
+    background-image: url(/images/studioyogaflow.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% 0%;
+    height: 100vh;
+    width: 100%;
+}
+.client-image-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    width: inherit;
+    overflow-x: hidden;
+   
+}
+
+.carousel{
+    margin: 2rem auto;
+    padding: 2rem 0;
+    max-width: 800px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: var(--black-alpha-color);
+    overflow-x: hidden;
+    
+}
+
+blockquote{
+    font-size: smaller;
+    margin-right: 15px;
+    
+}
+
+.carousel input{
+    display: none;
+}
+.carousel .slides{
+    display: flex;
+    width: 380%;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel label{
+    display: inline-block;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    border: medium solid var(--grey-dark-color);
+    cursor: pointer;
+    margin: 0 .25rem;
+}
+#slide-1:checked ~ .slides{
+    transform: translateX(0%);
+}
+#slide-2:checked ~ .slides{
+    transform: translateX(-25%);
+}
+#slide-3:checked ~ .slides{
+    transform: translateX(-51%);
+}
+#slide-4:checked ~ .slides{
+    transform: translateX(-78%);
+}
+#slide-1:checked ~ .slides-nav label#circle-1,
+#slide-2:checked ~ .slides-nav label#circle-2,
+#slide-3:checked ~ .slides-nav label#circle-3,
+#slide-4:checked ~ .slides-nav label#circle-4{
+    background-color: var(--first-color);
+}
+
+/*.*********** CONTACT FORM ************/
+
+.contact-form-response{
+    padding: 1rem;
+    width: 400px;
+    text-align: center;
+    background-color: var(--second-color);
+}
+
+.contact-form-response h3{
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+}
+
+
+
+.modal#gracias:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/*.*********** HOME IMAGE ************/
+.hero-image{
+    height: 100vh;
+    width: 100%;
+}
+.hero-image-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    height: inherit;
+    width: inherit;
+    margin-left: 5%;
+}
+.hero-image-title{
+    margin-bottom: 1.5rem;
+}
+.hero-image-title > h1{
+    margin-bottom: .3rem;
+    font-size: 2.2rem;
+    font-family: var(--first-font);
+    font-weight: lighter;
+    text-transform: uppercase;    
+}
+.hero-image-title > h2{
+    font-size: 1.6rem;
+    text-transform: uppercase;   
+}
+@media screen and (min-width: 1024px) {
+    .hero-image-title > h1{
+        font-size: 4.5rem;
+       padding-left: 50px;
+    }
+    .hero-image-title > h2{
+        font-size: 2.5rem;
+    }     
+}
+/*.*********** MENU ************/
+
+.menu-btn{
+    background-color: transparent;
+    border: 0;
+}
+.menu-btn svg{
+    fill: var(--first-color);
+}
+
+.menu{
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white-color);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-out ;
+    
+}
+.menu.is-active{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.menu a{
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+.menu a:hover{
+    color: var(--third-color);
+}
+@media screen and (min-width: 1024px) {
+    
+    .menu-btn{
+        display: none;
+    }
+    .menu{
+        position: static;
+        opacity: 1;
+        pointer-events: auto;
+        width: auto;
+        flex-direction: row;
+    }
+    .menu a{
+        padding: 0 1rem;
+        font-size: 1.25rem;
+    }
+    .menu a:last-child{
+        padding-right: 0;
+    }
+    .logo{
+        padding-right: 380px;
+    }       
+} 
+
+/*.*********** MODAL ************/
+
+.modal{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--black-alpha-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1s;
+}
+
+
+/*.********************* UTILITIES *************************************/
+.avatar{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: .9rem;
+}
+.btn{
+    border-radius: .5rem;
+    padding: 1rem;
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--second-color);
+    background-color: var(--first-color);
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    align-self: center;
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-width);
+}
+.mb-2{
+    margin-bottom: 2rem;
+}
+.section{
+    padding: 2rem 1rem;
+}
+.none{
+    display: none;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-right{
+    text-align: right;
+}
+.aboutstudio{
+    width: auto;
+    height: auto;
+}
+@media screen and (min-width: 1024px) {
+    .full-lg-screen{
+        width: 100%;
+        min-height: 100vh;
+    }
+    .text-lg-center{
+        text-align: center;
+    }
+    .text-lg-left{
+        text-align: left;
+    }
+    .text-lg-right{
+        text-align: right;
+    }
+    .aboutstudio{
+        width: auto;
+        height: auto;
+    }
+}
+/*.********************* SITE STYLES *************************************/
+
+.header{
+    position: fixed;
+    z-index: 99995;
+    padding: 1rem;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--white-color);
+}
+
+.header > .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo a{
+    
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-decoration: none;
+}
+.classes{
+    background-image: url(/images/clasestipoyoga.jpg); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% 0%;
+    height: 100vh;
+    width: 100%;
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+    width: inherit;   
+}
+.classes > .container > .classes-container > .section-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+.classes-card {
+    margin: 1rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+.classes-card h3{
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+.classes-card p{
+    font-size: 0.9rem;
+}
+.classes-card img {
+    width: auto;
+    height: 100px;
+    margin-bottom: 1.25rem;
+    transition: transform .2s;
+    border-radius: 10px;
+}
+.classes-card img:hover{
+    transform: scale(1.5);
+}
+.profesoras > .container >.section-title{
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;    
+}
+.profesoras-card h3{
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+.profesoras-card {
+    margin: 1rem auto;
+    padding: 1rem;
+    text-align: center;    
+}
+.profesoras-card p{
+    font-size: .9rem;
+}
+.profesoras-card img{
+    width: auto;
+    height: 100px;
+    filter: grayscale(1);
+    margin-bottom: 1.25rem;
+    transition: transfrom .2s;
+    border-radius: 10px;
+}
+.profesoras-card img:hover{
+    transform: scale(1.5);
+    filter: grayscale(0);
+}
+.home{
+    background-image: url(/images/matyoga.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 45% 0%;
+    height: 100vh;
+    width: 100%;
+}
+
+/*.*********** ABOUT ************/
+
+.about > article > h2 {
+ margin-bottom: 1rem;
+text-align: center;
+}
+
+.about > article > h2 {
+    text-transform: uppercase;
+}
+.aboutstudio{
+    border-radius: 10px;
+}
+.about > article > .studiodescription{
+    margin-top: -40px;
+}
+.btnabout{
+    align-self: center;
+}
+/*.*********** CLIENTS ************/
+
+.hero-image-opacity{
+    height: inherit;
+    width: inherit;
+    background-color: var(--hero-opacity);
+}
+
+
+.clients > .hero-image > .hero-image-opacity > .client-image-content > .container > h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+.clients > .hero-image > .hero-image-opacity > .client-image-content > .container > .carousel > .slides > .slide > h3 {
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/*.*********** CONTACTO ************/
+footer{
+    background-color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+}
+.sobre-mi> p{
+    color: var(--second-color);
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+}
+.redes-sociales > li{
+    color: var(--second-color);
+}
+.contenedor-footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1rem 2rem;
+
+}
+.titulo-footer{
+    color: var(--second-color); 
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 20px 0px 20px 0px;
+    padding: .6rem;
+    position: relative;
+    
+}
+
+/*.****REDES SOCIALES ***/
+.sobre-mi > .redes-sociales >li{
+        list-style-type: none;
+        margin-bottom: .5rem;
+}
+
+/*.****FORMULARIO ***/
+.formulario{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 95%;
+}
+.form-grid-item{
+    display: flex;
+    flex-direction: column;
+    width: 95%;  
+}
+.form-grid-item > input, .form-grid-item > textarea{
+    margin-bottom: 1.5rem; 
+   border: none; 
+   border-radius: 0.5rem;
+   padding-left: 1rem;
+}
+.form-grid-item > input::placeholder, .form-grid-item > textarea::placeholder{
+    color: var(--grey-dark-color);
+    font-family: var(--first-font);
+}
+.form-grid-item > input{
+    height: 3rem;   
+}   
+.form-grid-item > textarea{
+    padding-top: 1.5rem;
+    resize: none;
+}
+
+/*.**** MAPA ***/
+.map-grid{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;    
+}
+.map-grid > iframe{
+    margin-bottom: 20px;
+    border-radius: .5rem;
+    width: 95%;    
+}
+.btn-formulario{
+    margin-top: 0;
+    margin-bottom: 50px;
+    align-self: center;
+    align-self: center;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+.btn-formulario:hover {
+    opacity: 0.75;
+}
+
+/*.****copy ***/
+.copy{
+    text-align: center;
+    font-size: .9rem;
+    color: var(--second-color);
+    line-height: 1.4rem;
+    background-color: var(--grey-dark-color);
+    padding: .5rem;
+}
+
+@media screen and (min-width: 768px) {
+/*.*********** CLASSES ************/
+    .classes > .container > .classes-container {
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .classes  .section-title{
+        grid-column: span 2;
+        
+    }
+/*.*********** PROFESORAS************/
+    .profesoras > .container{
+        display: grid;
+        grid-template-columns: repeat(2, 45%);
+        justify-content: space-between;
+        align-items: center;
+    }
+    .profesoras .section-title{
+        grid-column: span 2;
+    }
+}
+@media screen and (min-width: 1024px) {
+    /*.*********** MENU ************/
+    .header{
+        position: fixed;
+        padding: 0.5rem;
+        height: calc(var(--header-height) - 0.5rem);
+    }
+    /*.*********** ABOUT ************/
+    .about{
+        display: grid;
+        grid-template-columns: repeat(2, 40%);
+        justify-content: space-between;
+        align-content: center;
+    }
+    /*.*********** CLASSES************/
+    .classes{
+        align-content: center;
+    }
+    .classes > .container .classes-container  {
+        grid-template-columns: repeat(3, 30%);
+    }
+
+    .classes  .section-title{
+        grid-column: span 3;
+    }
+
+    /*.*********** PROFESORAS ************/
+    .profesoras{
+        align-content: center;
+    }
+    .profesoras > .container{
+        grid-template-columns: repeat(4, 25%);   
+    }
+    .profesoras .section-title{
+        grid-column: span 4;
+    }
+
+    /*.*********** CONTACTO FOOTER ************/
+    .contenedor-footer{
+        
+        display: grid;
+       height: inherit;
+        width: inherit;
+        grid-template-columns: 1.25fr 1.25fr 1.25fr;
+    }   
+}
